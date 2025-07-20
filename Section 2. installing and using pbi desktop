@@ -13,3 +13,25 @@ It's time for your first Practice Activity.
     Save this page to your local hard drive, and publish it to the Power BI service.
 
 Good luck. If you get stuck, then please watch the next video, when I will do this Practice Activity as well.
+
+
+
+## 18. The SWITCH function
+```
+Location = if (FactFinance[OrganizationKey] < 8, "US", "Other")
+```
+
+
+## 19. Other logical functions, together with the DIVIDE function
+
+
+I want to create a calculated column, which doubles the Employee[Bonus] column.
+
+I want this column to be called DoubledBonus.
+
+What is the DAX formula I should use?
+
+DoubleBonus = Employee[Bonus] * 2
+
+---
+
