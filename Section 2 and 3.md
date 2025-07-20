@@ -83,7 +83,7 @@ Create the following calculated columns:
 Please save the Model developed in this Practice Activity. We will be using it in later Practice Activities.
 
 
-## Play 21. Practice Activity Number 2 - The Solution
+## 21. Practice Activity Number 2 - The Solution
 
 ```
 LocationName = DimGeography[StateProvinceName] & ", " & DimGeography[EnglishCountryRegionName]
