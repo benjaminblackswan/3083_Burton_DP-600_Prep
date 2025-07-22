@@ -64,3 +64,13 @@ AmountActualPlus1Sum = sum(FactFinance[AmountActualPlus1])
 So in this method, you created a new Measure with the "help" of the helper column AmountActualPlus1`
 
 <img width="192" height="495" alt="image" src="https://github.com/user-attachments/assets/be6451e6-5bdb-4317-930e-0261ade6e80c" />
+
+### create a measure using iterator function
+
+```
+AmountActualPlus1Sum = sumx(FactFinance, FactFinance[AmountActual] + 1)
+```
+
+## 24. Other statistical functions
+Rank = rank.eq(FactFinance[Amount], FactFinance[Amount], asc)
+
