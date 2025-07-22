@@ -140,11 +140,30 @@ So how can you create a Measure that lets you add $1 to **Amount** before sum it
 1. Using a helper column and then use an aggregate function.
 2. Using an iterator function.
 
-# Using a helper column and then use an aggregate function.
+### Using a helper column and then use an aggregate function.
 
-**Note: Columns **
+columns created in Power Query are called **Computed Columns**, columns created with DAX are called Calculated Columns, see https://www.sqlbi.com/articles/comparing-dax-calculated-columns-with-power-query-computed-columns/
 
-Create a new 
+_The choice of a DAX calculated column should be limited to cases where the result is obtained by accessing data in different rows of the same table or in different tables; you should however choose a Power Query computed column when the business logic to implement relies on the values of other columns of the same table._
+
+create a new column called `AmountActualPlus1`
+```
+AmountActualPlus1 = FactFinance[AmountActual] + 1
+```
+
+Then create a new called `AmountActualPlus1Sum`
+
+```
+AmountActualPlus1Sum = sum(FactFinance[AmountActualPlus1])
+```
+
+So in this method, you created a new Measure with the "help" of the helper column AmountActualPlus1`
+
+<img width="100" height="4950" alt="image" src="https://github.com/user-attachments/assets/49009e02-f625-450e-867d-e7d0012c6164" />
+
+
+
+
 
 
 
