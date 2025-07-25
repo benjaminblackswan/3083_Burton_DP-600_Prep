@@ -2,8 +2,9 @@
 
 Using `LOOKUPVALUE` you have to specify the linking keys (foreign key and primary key)
 ```
-OrganizationName = LOOKUPVALUE(DimOrganization[OrganizationName], DimOrganization[OrganizationKey],
-                    FactFinance[OrganizationKey])
+OrganizationName = LOOKUPVALUE(DimOrganization[OrganizationName],
+                                DimOrganization[OrganizationKey],
+                                FactFinance[OrganizationKey])
 ```
 
 However, if the relationship already exist in the data model, then you can use `RELATED` function. The relationship must be active.
@@ -12,6 +13,15 @@ However, if the relationship already exist in the data model, then you can use `
 
 ```
 OrganizationName2 = Related(DimOrganization[OrganizationName])
+```
+
+**equivalent SQL is**
+
+```
+select OrganizationName
+from FactFinance f
+left  join DimOrganization o
+on f.OrganizationKey = o.OrganizationKey
 ```
 
 as you can see, we get the same result
@@ -42,7 +52,18 @@ OrganizationName2 = Related(DimOrganization[OrganizationName]) & " (" & RELATED(
 **the purpose of using `RELATED` is that it can be used to hide another table.**
 
 
+
+
+
+
+
+
+
+
+
 ## 33. Using the RELATEDTABLE and COUNTROWS functions
+
+### Sum
 
 *RELATED is one of the most commonly used DAX functions. You use RELATED when you are scanning a table, and within that row context you want to access rows in related tables. RELATEDTABLE is the companion of RELATED, and it is used to traverse relationships in the opposite direction.*
 
@@ -53,11 +74,33 @@ from One to Many, use `RELATEDTABLE`
 
 <img width="665" height="383" alt="image" src="https://github.com/user-attachments/assets/1a279b26-51ed-47a0-b85e-1e43afbc1a80" />
 
+```
+Answer = SUMX(RELATEDTABLE(FactFinance), FactFinance[Amount])
+```
+
 what is dax is doing is that is it aggregating (summing up) all the Amount column from the FactFinance table for the OrganizationName.
 
 See it is travelling in the opposite direction
 
 <img width="445" height="610" alt="image" src="https://github.com/user-attachments/assets/3dad0b9e-a214-4d95-bb1e-434811240733" />
+
+
+**SQL equivalent**
+```
+select o.OrganizationKey, sum(amount)
+from FactFinance f
+left  join DimOrganization o
+on f.OrganizationKey = o.OrganizationKey
+group by o.OrganizationKey
+order by o.OrganizationKey
+```
+
+This is basically group by.
+
+
+
+---
+### Count
 
 We can also use `COUNTX` to count all the rows for that `OrganisationName'. 
 
@@ -68,6 +111,7 @@ Answer = COUNTX(RELATEDTABLE(FactFinance), FactFinance[Amount])
 for example, there are 5127 Northeast Divisions in the FactFinance table, this number include blank rows.
 
 <img width="776" height="388" alt="image" src="https://github.com/user-attachments/assets/479e5f75-47f1-42aa-b934-451c27902b9a" />
+
 
 If we don't want to count the blank rows, we change the column name from Amount to AmountActual.
 
@@ -83,6 +127,16 @@ We can also use `COUNTROWS`, which gives the same result as `COUNTX(RELATEDTABLE
 Answer = COUNTROWS(RELATEDTABLE(FactFinance))
 ```
 <img width="741" height="364" alt="image" src="https://github.com/user-attachments/assets/4571e357-0e4e-4574-a028-5f258988e88e" />
+
+**SQL equivalent**
+```
+select o.OrganizationKey, count(amount)
+from FactFinance f
+left  join DimOrganization o
+on f.OrganizationKey = o.OrganizationKey
+group by o.OrganizationKey
+order by o.OrganizationKey
+```
 
 ## 34. Context
 
