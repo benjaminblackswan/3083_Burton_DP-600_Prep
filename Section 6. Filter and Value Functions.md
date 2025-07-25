@@ -140,8 +140,50 @@ order by o.OrganizationKey
 
 ## 34. Context
 
+https://www.sqlbi.com/articles/filter-context-in-dax/
+
+<img width="880" height="458" alt="image" src="https://github.com/user-attachments/assets/13f99bff-19aa-456f-9664-278971c966c8" />
 
 
+### With filter context
+
+```
+Answer = SUMX(RELATEDTABLE(FactFinance), FactFinance[Amount])
+```
+
+**In SQL, this would be simply a group by statement**
+
+```
+select o.OrganizationKey, sum(amount)
+from DimOrganization o
+left  join FactFinance f
+on f.OrganizationKey = o.OrganizationKey
+group by o.OrganizationKey
+order by o.OrganizationKey
+```
+<img width="249" height="334" alt="image" src="https://github.com/user-attachments/assets/2d26b07a-a1ee-46d0-8fc8-12a8f7c73e53" />
+
+---
+
+### without filter context
+```
+answer 2 = sumx(FactFinance, FactFinance[Amount])
+```
+
+The second dax does not have filter context, it simply adds up everything.
+
+**The SQL equivalent one with over() clause**
+
+```
+select o.OrganizationKey, sum(sum(amount)) over ()
+from DimOrganization o
+left  join FactFinance f
+on f.OrganizationKey = o.OrganizationKey
+group by o.OrganizationKey
+order by o.OrganizationKey
+```
+
+<img width="252" height="310" alt="image" src="https://github.com/user-attachments/assets/d45edbee-fef6-4021-a8ba-53163d4637b3" />
 
 
 ## 35. The ALL function
