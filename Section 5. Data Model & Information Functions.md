@@ -21,7 +21,10 @@ Divide = iferror(4/0, blank())
 ## 29. 32d. Using information functions
 
 ```
-OrganizationName = LOOKUPVALUE(DimOrganization[OrganizationName], DimOrganization[OrganizationKey],FactFinance[OrganizationKey])
+OrganizationName = LOOKUPVALUE(
+                              DimOrganization[OrganizationName],
+                              DimOrganization[OrganizationKey],
+                              FactFinance[OrganizationKey])
 ```
 
 
@@ -45,15 +48,21 @@ OrganizationName = LOOKUPVALUE(DimOrganization[OrganizationName], DimOrganizatio
 ### solution
 
 ```
-Group = LOOKUPVALUE(DimSalesTerritory[SalesTerritoryGroup], DimSalesTerritory[SalesTerritoryKey], DimGeography[SalesTerritoryKey])
+Group = LOOKUPVALUE(DimSalesTerritory[SalesTerritoryGroup],
+                     DimSalesTerritory[SalesTerritoryKey],
+                     DimGeography[SalesTerritoryKey])
 ```
 
 ```
-Country = iferror(LOOKUPVALUE(DimSalesTerritory[SalesTerritoryCountry], DimSalesTerritory[SalesTerritoryGroup], DimGeography[Group]), blank())
+Country = iferror(LOOKUPVALUE(DimSalesTerritory[SalesTerritoryCountry],
+                     DimSalesTerritory[SalesTerritoryGroup],
+                     DimGeography[Group]), blank())
 ```
 
 ```
-Country = LOOKUPVALUE(DimSalesTerritory[SalesTerritoryCountry], DimSalesTerritory[SalesTerritoryGroup], DimGeography[Group], blank())
+Country = LOOKUPVALUE(DimSalesTerritory[SalesTerritoryCountry],
+                        DimSalesTerritory[SalesTerritoryGroup],
+                        DimGeography[Group], blank())
 ```
 
 
