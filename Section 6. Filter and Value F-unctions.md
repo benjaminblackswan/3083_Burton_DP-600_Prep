@@ -366,13 +366,14 @@ Amount2028 = calculate(sumx(FactFinance, FactFinance[Amount]), filter(FactFinanc
 
 ## 38. The ALLEXCEPT function
 
+Returns all the rows in a table or all the values in a column, ignoring all context filters applied but taking into account the specified columns filter.
+
 ```
-ActualAllExcept = CALCULATE(sum(FactFinance[Amount]), allexcept(FactFinance, DimOrganization[OrganizationName], FactFinance[Date].[Year]))
+ActualAllExcept = CALCULATE(sum(FactFinance[Amount]), ALLEXCEPT(FactFinance, DimOrganization[OrganizationName], FactFinance[Date].[Year]))
 ```
 
-<img width="436" height="698" alt="image" src="https://github.com/user-attachments/assets/b5e64c20-db76-4185-b148-eeca398b4e87" />
+<img width="1124" height="660" alt="image" src="https://github.com/user-attachments/assets/be03873c-7e7c-4589-93d3-5246694296cf" />
 
-<img width="240" height="238" alt="image" src="https://github.com/user-attachments/assets/0a170d08-c2b5-4d05-8913-3798e9dc5687" />
 
 
 
@@ -462,28 +463,47 @@ Let's practice our Filter and Value Functions. We will using the model we have d
    - If a relationship has been created between the DimCustomer and DimGeography tables, check the relationship between these two tables.
    - If a relationship has not been created, please create it using the GeographyKey columns.
    - In the Model view, change the relationship between DimGeography and DimCustomer  to "Cross filter direction: Both".
+  <img width="951" height="710" alt="image" src="https://github.com/user-attachments/assets/01d7ca85-e1fa-4781-a0dd-b5b0d35e0771" />
+
+
 2. In the DimCustomer table, use the RELATED function to create a new Calculated Column called Region, which retrieves the SalesTerritoryRegion column from the DimSalesTerritory table.
+```
+Region = Related(DimSalesTerritory[SalesTerritoryRegion])
+```
+  
 3. In the DimSalesTerritory table, use the RELATEDTABLE and COUNTROWS functions to create a new Calculated Column called NumberOfCustomers. It should count the number of relevant rows in the DimCustomer table.
+   
+```
+NumberOfCustomers = countrows(RELATEDTABLE(DimCustomer))
+```
 
-    Create a matrix visualization which includes:
+4. Create a matrix visualization which includes:
+   - SalesTerritoryGroup and SalesTerritoryRegion from DimSalesTerritory in the Rows,
+   - Gender from DimCustomer in the Columns, and
+   - a count of CustomerKey from DimCustomer.
+   - Then expand the visualization so you can see both SalesTerritoryGroup and SalesTerritoryRegion.
 
-        SalesTerritoryGroup and SalesTerritoryRegion from DimSalesTerritory in the Rows,
+5. Use the CALCULATE and FILTER functions to create a measure called NumberSingle.
+   - It should calculate the count of CustomerKey where the MaritalStatus in DimCustomer is 'S' (which means Single).
+   - Add it into the Values section of the visual, and then replace the Gender column with the MartialStatus column.
+   ```
+    NumberSingle = CALCULATE(count(DimCustomer[CustomerKey]), FILTER(DimCustomer, DimCustomer[MaritalStatus] = "S"))
+   ```
+     
+6. Create a similar measure called GrandTotal which uses the ALL function, and add it into the Values section of the visual.
+   
+   ```
+    GrandTotal = CALCULATE(count(DimCustomer[CustomerKey]), all())
+   ```
+   <img width="886" height="446" alt="image" src="https://github.com/user-attachments/assets/e93b034e-c436-41f0-9f9f-90dfbc51da95" />
 
-        Gender from DimCustomer in the Columns, and
+8. Create a measure called **NumberContinent** which uses the ALLSELECTED function to remove the impact of SalesTerritoryRegion. Then add it into the Values section of the visual.
 
-        a count of CustomerKey from DimCustomer.
+```   
+NumberContinent1 = CALCULATE(COUNT(DimCustomer[CustomerKey]), ALLSELECTED(DimSalesTerritory[SalesTerritoryGroup]))
+```
 
-        Then expand the visualization so you can see both SalesTerritoryGroup and SalesTerritoryRegion.
-
-    Use the CALCULATE and FILTER functions to create a measure called NumberSingle.
-
-        It should calculate the count of CustomerKey where the MartialStatus in DimCustomer is 'S' (which means Single).
-
-        Add it into the Values section of the visual, and then replace the Gender column with the MartialStatus column.
-
-    Create a similar measure called GrandTotal which uses the ALL function, and add it into the Values section of the visual.
-
-    Create a measure called NumberContinent which uses the ALLSELECTED function to remove the impact of SalesTerritoryRegion. Then add it into the Values section of the visual.
-
-
+```   
+NumberContinent2 = CALCULATE(COUNT(DimCustomer[CustomerKey]), ALLEXCEPT(DimSalesTerritory, DimSalesTerritory[SalesTerritoryGroup]))
+```
 
