@@ -202,11 +202,41 @@ To share, click on **Share**
 
 <img width="448" height="100" alt="image" src="https://github.com/user-attachments/assets/64841518-4b1d-4976-a8b1-28c1d8b265b0" />
 
+To manage access permission from a pbis report, click on the three dots
+
+<img width="660" height="452" alt="image" src="https://github.com/user-attachments/assets/8b22ed5e-e5e3-43a7-a06a-d158365d3e91" />
+
+
+
+To remove people, you have to go into advanced or go to Manage Permission
+
+<img width="443" height="1199" alt="image" src="https://github.com/user-attachments/assets/181688f4-9896-4657-bca1-a33c8d475471" />
+
+you will see links and who has direct access.
+
+
+<img width="1259" height="204" alt="image" src="https://github.com/user-attachments/assets/2a0adfd7-81da-4cfe-8b91-e307dfb4ef5e" />
 
 
 
 
 
+
+
+
+
+
+
+## Quiz 5: Other PL-300 exam topics needed for the DP-600 exam
+
+<img width="829" height="1017" alt="image" src="https://github.com/user-attachments/assets/a32a73c3-f395-4b7e-9022-ab56cf1bb67e" />
+
+
+<img width="840" height="513" alt="image" src="https://github.com/user-attachments/assets/17ea991c-8f02-4f15-9e4b-984675510828" />
+
+<img width="845" height="482" alt="image" src="https://github.com/user-attachments/assets/9b050cfc-56b5-4015-a257-12d8b994e418" />
+
+<img width="846" height="487" alt="image" src="https://github.com/user-attachments/assets/7bc14418-1971-4ed0-9cf2-581fee36c1ba" />
 
 
 
