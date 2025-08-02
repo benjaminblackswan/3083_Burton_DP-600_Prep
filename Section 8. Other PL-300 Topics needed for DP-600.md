@@ -23,7 +23,8 @@ We will see something called SQL Server and SQL Database. Just like on-prem, SQL
 
 Click on myfirstdatabase and use SQL Server authentication, the password is the one I set when I created this db. Both authentication method should work but I find the Entra ID is less reliable, gives error alot.
 
-<img width="814" height="466" alt="image" src="https://github.com/user-attachments/assets/4b89684c-9f46-4efe-8346-cc71cf4f788d" />
+<img width="503" height="390" alt="image" src="https://github.com/user-attachments/assets/0bb13ce1-5d43-4f61-94ce-4c322461f04f" />
+
 
 
 **to query the Azure SQL db**
