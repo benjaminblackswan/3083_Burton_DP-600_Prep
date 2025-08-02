@@ -68,7 +68,39 @@ In **Model View**, you can see the Storage Mode is Import, we can not change Imp
 
 # 50. 36. Improve query performance by using query folding
 
+### Check Query Folding
 
+First lets **merge** City and StateProvince columns (Add Column > Merge Columns)
+
+If we right click on the Applied Steps and if we can choose **View Native Query**, then that means the step is Query Folder, you can see the SQL.
+
+<img width="274" height="387" alt="image" src="https://github.com/user-attachments/assets/9b009f3c-4d00-4df2-8de2-6d945c690d71" /> <br><br>
+<img width="555" height="218" alt="image" src="https://github.com/user-attachments/assets/bc21a56f-2d62-4bc8-a5f9-0b4147ff165e" />
+
+Now add an index (Add column > Index Column > From 1) and you see that the View Native Query is grey out.
+
+<img width="269" height="313" alt="image" src="https://github.com/user-attachments/assets/e9402342-6cdf-4c8f-a8c0-b7b11541b5c9" />
+
+What this mean is that SQL Server does the transformation from step 1 to 4 and provides the result in step 4 to Power Query.
+
+<img width="383" height="360" alt="image" src="https://github.com/user-attachments/assets/ea86499e-9846-4c0c-9007-e3060377cd5b" />
+
+
+**Create a new workspace in Fabric online**
+
+and upload the power bi file into 3083 - Burton, [DP-600 Prep **workspace**](https://app.fabric.microsoft.com/groups/fd0057e2-9a8e-4058-84fd-47b80cab783b/list?experience=power-bi)
+
+Go to the workspace and look for 3083 workspace
+
+<img width="322" height="294" alt="image" src="https://github.com/user-attachments/assets/b64c9495-7904-4579-b760-efa57ab0fc30" />
+
+Once you are in the 3083 workspace, look for the Power Bi semantic model and report we just uploaded.
+
+<img width="1645" height="94" alt="image" src="https://github.com/user-attachments/assets/ba88a74c-5ad3-4d0e-b234-0c410550fcd1" />
+
+Click on semantic model and 
+
+<img width="287" height="218" alt="image" src="https://github.com/user-attachments/assets/fbf068a8-4aba-41ed-ad4a-e18e8a4ad240" />
 
 
 
