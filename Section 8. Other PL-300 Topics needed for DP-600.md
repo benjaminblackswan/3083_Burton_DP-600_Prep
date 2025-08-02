@@ -115,25 +115,92 @@ allowes user to use bascially the **Power bi online** version.
 
 
 
+## 52. 1. Implement workspace-level access controls
+
+Creating a new workspace called `Part 1 Level 7 Workspace` under the trial or pro licence.
+
+In Manage Access, I am the only admin
+
+<img width="268" height="266" alt="image" src="https://github.com/user-attachments/assets/3a5ef519-b332-4e7b-b259-bf3edf255fa3" />
+
+We can add people in the same org with one of four level of access privileges.
+
+<img width="362" height="452" alt="image" src="https://github.com/user-attachments/assets/c63fb6b9-338e-4451-b479-40b845a74641" />
 
 
 
 
 
 
+## 53. 39. Implement incremental refresh for semantic models
+
+This time we will use **Incremental Refresh**. 
+
+Connect to myfirstdatabase and choose `SalesTL.Product` table and load the data.
+
+Now, we need to create two parameters of `RangeStart` and `RangeEnd`, which we will use later for filtering dates. Go to Manage Parameters in Home tab.
+
+The `RangeStart` parameter will have a value of 2002-01-01
+
+<img width="406" height="663" alt="image" src="https://github.com/user-attachments/assets/09fd5fda-ee6b-4b7d-8742-b6861f79f154" />
+
+Create `RangeEnd`
+
+<img width="409" height="658" alt="image" src="https://github.com/user-attachments/assets/972cf9c0-1b26-4e65-bca7-c805d7216f0d" />
+
+<img width="562" height="412" alt="image" src="https://github.com/user-attachments/assets/0b0b6631-446b-4a05-8c82-3e171f1db44e" />
+
+
+Now filter SellStartDate with between
+
+<img width="453" height="336" alt="image" src="https://github.com/user-attachments/assets/d4f092d6-4ae8-41dc-ae31-9f7833e55be9" /> <br> <br>
+
+<img width="708" height="306" alt="image" src="https://github.com/user-attachments/assets/615a9b3a-b8bf-4766-a140-c30dd1f25e52" />
+
+Make sure you have is after or equal to for start and is before for end, that each date only occurs in one load.
+
+<img width="773" height="309" alt="image" src="https://github.com/user-attachments/assets/0b668d0f-13ed-4bcd-9481-8e94df0e4fe6" />
+
+the result of the filtering is
+
+<img width="1181" height="222" alt="image" src="https://github.com/user-attachments/assets/fb2b71d3-daf2-4c89-8f49-097839a78b67" />
+
+
+Right click on the SalesLT Product table > Incremental Refresh
+
+<img width="240" height="477" alt="image" src="https://github.com/user-attachments/assets/c19da827-4f87-4b54-9e6e-d07236cce095" />
+
+
+Apply using the following settings.
+
+<img width="522" height="926" alt="image" src="https://github.com/user-attachments/assets/c0bdb518-70de-4766-a291-11c185dd320a" />
+
+Now save and upload the power bi report to pbi service workspace.
+
+give the semantic model Oauth2 credential.
+
+<img width="1055" height="593" alt="image" src="https://github.com/user-attachments/assets/f651d559-7ecf-4a33-aa9a-a739f5f39448" />
+
+Refresh the semantic model
+
+<img width="505" height="120" alt="image" src="https://github.com/user-attachments/assets/097f419e-0f7b-40da-ba85-63485d0a5790" />
+
+
+click on **Refresh Visual** button.
+
+<img width="613" height="238" alt="image" src="https://github.com/user-attachments/assets/5b16822a-42bd-4a61-bcaf-d1bfba9ce617" />
+
+Your visuals will now be updated. 
+
+<img width="830" height="345" alt="image" src="https://github.com/user-attachments/assets/008cd223-8fee-476d-8609-a8d4e47ef653" />
 
 
 
+## 55. 2. Implement item-level access controls
 
+To share, click on **Share**
 
-
-
-
-
-
-
-
-
+<img width="448" height="100" alt="image" src="https://github.com/user-attachments/assets/64841518-4b1d-4976-a8b1-28c1d8b265b0" />
 
 
 
