@@ -98,10 +98,19 @@ Once you are in the 3083 workspace, look for the Power Bi semantic model and rep
 
 <img width="1645" height="94" alt="image" src="https://github.com/user-attachments/assets/ba88a74c-5ad3-4d0e-b234-0c410550fcd1" />
 
-Click on semantic model and 
+Click on semantic model and click on Explore.
 
 <img width="287" height="218" alt="image" src="https://github.com/user-attachments/assets/fbf068a8-4aba-41ed-ad4a-e18e8a4ad240" />
 
+## Explore This Data
+
+allowes user to use bascially the **Power bi online** version.
+
+<img width="1473" height="964" alt="image" src="https://github.com/user-attachments/assets/0415a203-4568-44df-a618-e3b4d5949b27" />
+
+## Auto-create a report
+
+<img width="1163" height="866" alt="image" src="https://github.com/user-attachments/assets/63b5a02e-6967-421a-85be-408ae04762b8" />
 
 
 
