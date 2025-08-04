@@ -79,3 +79,23 @@ Click on *yes*. This will stop implicit measures from being created in visuals.
 YTD = CALCULATE(SELECTEDMEASURE(), DATESYTD(DimDate[Date]))
 ```
 
+Rename Calculation group to Time Intelligence
+Calculation group column to Time Calculation
+
+<img width="216" height="91" alt="image" src="https://github.com/user-attachments/assets/24e29caf-f66c-4ce4-837a-b284af8854b4" /> <br>
+
+<img width="251" height="150" alt="image" src="https://github.com/user-attachments/assets/a247b70c-999c-45b6-b0ec-36c1c4253d37" />
+
+Create a Matrix in a new page.
+
+If we to drap a column in value, we can not use **implicit measure**
+
+<img width="335" height="377" alt="image" src="https://github.com/user-attachments/assets/3a33dcc5-9edf-41b9-9add-707d3eb04fc2" />
+
+**Create an explicit measure**
+
+```
+SumOfSalesAmount = SUM(FactInternetSales[SalesAmount])``
+```
+
+
